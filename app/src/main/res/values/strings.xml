@@ -1,18 +1,19 @@
 <resources>
     <string name="app_name">RegistrationApp</string>
-    <string name="textTvName">Name</string>
-    <string name="textTvSurname">Surname</string>
-    <string name="textEtName">Enter a name on English</string>
-    <string name="textEtSurname">Enter a surname on English</string>
-    <string name="textTvAge">Age</string>
-    <string name="textEtAge">Enter your age</string>
-    <string name="textTvMobile">Mobile phone</string>
-    <string name="textEtMobile">Enter your phone number</string>
-    <string name="textTvEmail">Email</string>
-    <string name="textEtEmail">Enter your email</string>
-    <string name="textTvPassword">Password</string>
-    <string name="textEtPassword">Create your password</string>
+    <string name="textEtName">Name</string>
+    <string name="textEtSurname">Surname</string>
+    <string name="textEtAge">Age</string>
+    <string name="textEtMobile">Mobile phone</string>
+    <string name="textEtEmail">Email</string>
+    <string name="textEtPassword">Password</string>
     <string name="textEtPasswordRepeat">Repeat a password</string>
     <string name="textButtonSignUp">Sign Up</string>
     <string name="textTvRegistration">Registration</string>
+    <string name="name_validation_error">Only a-z symbols allowed</string>
+    <string name="email_validation_error">Enter your email in the format —@-</string>
+    <string name="age_validation_error">Your age must be over 18</string>
+    <string name="password_validation_error">Your password must contain a number, lowercase letter, uppercase
+        letter and be more than 6 symbols
+    </string>
+    <string name="field_validation_error">Field could not be empty</string>
 </resources>
