@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">RegistrationApp</string>
+    <string name="textTvName">Name</string>
+    <string name="textEtName">Enter a name on English</string>
+    <string name="textEtSurname">Enter a surname on English</string>
+    <string name="textTvAge">Age</string>
+    <string name="textEtAge">Enter your age</string>
+    <string name="textTvMobile">Mobile phone</string>
+    <string name="textEtMobile">Enter your phone number</string>
+    <string name="textTvEmail">Email</string>
+    <string name="textEtEmail">Enter your email</string>
+    <string name="textTvPassword">Password</string>
+    <string name="textEtPassword">Create your password</string>
+    <string name="textEtPasswordRepeat">Repeat a password</string>
+    <string name="textButtonSignUp">Sign Up</string>
+    <string name="textTvRegistration">Registration</string>
 </resources>
