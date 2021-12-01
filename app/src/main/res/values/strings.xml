@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">RegistrationApp</string>
     <string name="textTvName">Name</string>
+    <string name="textTvSurname">Surname</string>
     <string name="textEtName">Enter a name on English</string>
     <string name="textEtSurname">Enter a surname on English</string>
     <string name="textTvAge">Age</string>
