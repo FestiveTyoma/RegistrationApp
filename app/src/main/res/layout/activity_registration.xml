@@ -62,11 +62,11 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/textEtMobile"
                 android:id="@+id/mobileEt"
-                android:inputType="phone"
-                android:typeface="monospace"
+                android:inputType="phone"/>
+               <!-- android:typeface="monospace"
                 mask:allowed_chars="1234567890"
                 mask:mask="+7(###)###-##-##"
-                app:keep_hint="true"/>
+                app:keep_hint="true"-->
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
@@ -92,4 +92,11 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/textEtPassword" android:id="@+id/passwordEt" android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
+    <Button
+            android:text="@string/txtButtonSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/buttonSignUp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

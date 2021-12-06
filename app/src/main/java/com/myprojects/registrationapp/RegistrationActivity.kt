@@ -2,16 +2,27 @@ package com.myprojects.registrationapp
 
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
 import com.google.android.material.textfield.TextInputLayout
 import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
+import com.myprojects.registrationapp.db.UserRoomDatabase
+import com.myprojects.registrationapp.viewModel.UserViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import androidx.activity.viewModels
+import com.myprojects.registrationapp.db.User
+import com.myprojects.registrationapp.viewModel.UserViewModelFactory
 
 
 class RegistrationActivity : AppCompatActivity() {
+
+    private val userViewModel: UserViewModel by viewModels {
+        UserViewModelFactory((application as UserApplication).repository)
+    }
     private var disposable = CompositeDisposable()
     var nameInputLayout: TextInputLayout ?=null
     var surnameInputLayout: TextInputLayout ?=null
@@ -26,6 +37,9 @@ class RegistrationActivity : AppCompatActivity() {
     var ageEt: EditText?=null
     var emailEt: EditText?=null
     var passwordEt: EditText?=null
+
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +58,19 @@ class RegistrationActivity : AppCompatActivity() {
         ageEt = findViewById(R.id.ageEt)
         emailEt = findViewById(R.id.emailEt)
         passwordEt=findViewById(R.id.passwordEt)
+
+       val btnSignUp=findViewById<Button>(R.id.buttonSignUp)
+
+        btnSignUp.setOnClickListener {
+            val textEtName = nameEt?.text.toString()
+            val textEtSurname = surnameEt?.text.toString()
+            val textEtAge = ageEt?.text.toString()
+            val textEtMobile = mobileEt?.text.toString()
+            val textEtEmail = emailEt?.text.toString()
+            val textEtPassword = passwordEt?.text.toString()
+            val user = User(textEtName, textEtSurname, textEtAge, textEtMobile, textEtEmail, textEtPassword)
+            userViewModel.insert(user)
+        }
 
     }
     inline fun validateInput(inputLayout: TextInputLayout, inputView: EditText, crossinline body: () -> Unit): Disposable {
@@ -142,7 +169,7 @@ class RegistrationActivity : AppCompatActivity() {
         val r4 = Regex ("[A-Z]+")
         val r5 = Regex ("[0-9]+")
        val checkPas =  r3.containsMatchIn(password) && r4.containsMatchIn(password)
-               && r5.containsMatchIn(password) && password.length < 6
+               && r5.containsMatchIn(password) && password.length > 5
         if (password.isEmpty()) {
             passwordInputLayout?.isErrorEnabled = true
             passwordInputLayout?.error = getString(R.string.field_validation_error)
@@ -153,4 +180,5 @@ class RegistrationActivity : AppCompatActivity() {
             passwordInputLayout?.isErrorEnabled = false
         }
     }
+
 }

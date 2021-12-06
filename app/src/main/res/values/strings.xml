@@ -13,7 +13,8 @@
     <string name="email_validation_error">Enter your email in the format —@-</string>
     <string name="age_validation_error">Your age must be over 18</string>
     <string name="password_validation_error">Your password must contain a number, lowercase letter, uppercase
-        letter and be more than 6 symbols
+        letter and be more than 5 symbols
     </string>
     <string name="field_validation_error">Field could not be empty</string>
+    <string name="txtButtonSignUp">SIGN UP</string>
 </resources>
