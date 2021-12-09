@@ -17,4 +17,5 @@
     </string>
     <string name="field_validation_error">Field could not be empty</string>
     <string name="txtButtonSignUp">SIGN UP</string>
+    <string name="textButtonSignIn">Sign In</string>
 </resources>

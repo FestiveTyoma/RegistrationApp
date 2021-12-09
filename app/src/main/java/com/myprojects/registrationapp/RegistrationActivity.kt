@@ -61,7 +61,9 @@ class RegistrationActivity : AppCompatActivity() {
         emailEt = findViewById(R.id.emailEt)
         passwordEt=findViewById(R.id.passwordEt)
 
-        var textViewTest = findViewById<TextView>(R.id.textViewTest)
+        var skip = findViewById<Button>(R.id.buttonSkip)
+        skip.setOnClickListener { val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent) }
 
 
        val btnSignUp=findViewById<Button>(R.id.buttonSignUp)

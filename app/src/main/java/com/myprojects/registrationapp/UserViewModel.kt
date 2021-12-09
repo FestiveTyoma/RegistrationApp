@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
  class UserViewModel( private val repository: UserRepository) : ViewModel() {
 
-     val userByEmail: LiveData<Array<User>> = repository.userByEmail.asLiveData()
+     fun userByEmail(email:String): LiveData<User> = repository.userByEmail(email).asLiveData()
      val getAll: LiveData<List<User>> = repository.getAll.asLiveData()
      fun insert(user: User) = viewModelScope.launch {
         repository.insert(user)
