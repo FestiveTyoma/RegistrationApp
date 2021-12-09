@@ -1,6 +1,5 @@
 package com.myprojects.registrationapp.db
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
@@ -17,6 +16,9 @@ interface UserDao {
 
     @Delete
     fun delete(user: User)
+
+    @Query("SELECT * FROM user_table")
+     fun getAll(): Flow<List<User>>
 
     @Query("SELECT * FROM user_table WHERE email = :email")
     fun getDataByEmail(email: String): Flow<Array<User>>

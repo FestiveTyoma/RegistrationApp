@@ -1,21 +1,23 @@
 package com.myprojects.registrationapp
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import android.app.Activity
 import com.google.android.material.textfield.TextInputLayout
 import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
-import com.myprojects.registrationapp.db.UserRoomDatabase
+import com.myprojects.registrationapp.db.User
 import com.myprojects.registrationapp.viewModel.UserViewModel
+import com.myprojects.registrationapp.viewModel.UserViewModelFactory
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import androidx.activity.viewModels
-import com.myprojects.registrationapp.db.User
-import com.myprojects.registrationapp.viewModel.UserViewModelFactory
+
 
 
 class RegistrationActivity : AppCompatActivity() {
@@ -59,19 +61,36 @@ class RegistrationActivity : AppCompatActivity() {
         emailEt = findViewById(R.id.emailEt)
         passwordEt=findViewById(R.id.passwordEt)
 
+        var textViewTest = findViewById<TextView>(R.id.textViewTest)
+
+
        val btnSignUp=findViewById<Button>(R.id.buttonSignUp)
 
         btnSignUp.setOnClickListener {
-            val textEtName = nameEt?.text.toString()
-            val textEtSurname = surnameEt?.text.toString()
-            val textEtAge = ageEt?.text.toString()
-            val textEtMobile = mobileEt?.text.toString()
-            val textEtEmail = emailEt?.text.toString()
-            val textEtPassword = passwordEt?.text.toString()
-            val user = User(textEtName, textEtSurname, textEtAge, textEtMobile, textEtEmail, textEtPassword)
-            userViewModel.insert(user)
+            if (validationResult()) {
+                val textEtName = nameEt?.text.toString()
+                val textEtSurname = surnameEt?.text.toString()
+                val textEtAge = ageEt?.text.toString()
+                val textEtMobile = mobileEt?.text.toString()
+                val textEtEmail = emailEt?.text.toString()
+                val textEtPassword = passwordEt?.text.toString()
+                val user = User(textEtName, textEtSurname, textEtAge, textEtMobile, textEtEmail, textEtPassword)
+                userViewModel.insert(user)
+               /* userViewModel.getAll.observe(this){users -> users.let {
+                    textViewTest.setText(it.toString())
+                }}*/
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+
+            } else Toast.makeText(this, "Please, fill in the input fields", Toast.LENGTH_LONG).show()
         }
 
+    }
+
+    fun validationResult(): Boolean {
+        return nameInputLayout?.isErrorEnabled==false && surnameInputLayout?.isErrorEnabled==false &&
+            ageInputLayout?.isErrorEnabled==false && emailInputLayout?.isErrorEnabled==false &&
+            passwordInputLayout?.isErrorEnabled==false
     }
     inline fun validateInput(inputLayout: TextInputLayout, inputView: EditText, crossinline body: () -> Unit): Disposable {
         return RxView.focusChanges(inputView)
