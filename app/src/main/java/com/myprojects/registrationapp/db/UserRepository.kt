@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.Flow
 class UserRepository(private val userDao: UserDao) {
 
    fun userByEmail(email:String): Flow<User> = userDao.getDataByEmail(email)
+    fun userById(id:Int): Flow<User> = userDao.getDataById(id)
 
     val getAll: Flow<List<User>> =  userDao.getAll()
 
