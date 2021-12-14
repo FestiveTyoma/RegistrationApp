@@ -1,5 +1,6 @@
 package com.myprojects.registrationapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,6 +11,7 @@ import com.myprojects.registrationapp.viewModel.UserViewModel
 import com.myprojects.registrationapp.viewModel.UserViewModelFactory
 
 class LoginActivity : AppCompatActivity() {
+    val ID_USER = "idAuthorized"
     private val userViewModel: UserViewModel by viewModels {
         UserViewModelFactory((application as UserApplication).repository)
     }
@@ -30,7 +32,9 @@ class LoginActivity : AppCompatActivity() {
                 userViewModel.userByEmail(emailText).observe(this) { users ->
                     users.let {
                         if (it?.email == emailText && it.password == passwordText) {
-                            Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, MusicActivity::class.java)
+                            intent.putExtra(ID_USER, it.id)
+                            startActivity(intent)
                         } else {
                             Toast.makeText(this, "Error login or password", Toast.LENGTH_SHORT).show()
                         }
