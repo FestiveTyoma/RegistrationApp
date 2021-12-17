@@ -12,16 +12,16 @@ class NetworkService private constructor() {
     private val mRetrofit: Retrofit
 
     interface APIService {
-        @GET("/jokes/random/{count}")
-        fun getRandomJokesWithCount(@Path("count") count: Int): Call<User?>?
+        @GET("//search?term={searchResult}&entity=album&attribute=albumTerm&lang={language}")
+        fun getAlbums(@Path("searchResult") searchResult: String,
+                      @Path("language") language: String): Call<User?>?
     }
-
     val aPI: APIService
         get() = mRetrofit.create<APIService>(APIService::class.java)
 
     companion object {
         private var mInstance: NetworkService? = null
-        private const val BASE_URL = "https://api.icndb.com"
+        private const val BASE_URL = "https://itunes.apple.com"
 
         //Singleton for class
         val instance: NetworkService?
