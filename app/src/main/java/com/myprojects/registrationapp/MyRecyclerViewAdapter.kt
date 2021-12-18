@@ -21,8 +21,8 @@ class MyRecyclerViewAdapter internal constructor(context: Context?, data: List<S
 
     // binds the data to the TextView in each row
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val joke = mData[position]
-        holder.myTextView.text = joke
+        val data = mData[position]
+        holder.myTextView.text = data
     }
 
     // total number of rows

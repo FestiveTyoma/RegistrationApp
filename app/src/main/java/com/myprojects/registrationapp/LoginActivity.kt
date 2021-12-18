@@ -7,11 +7,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.myprojects.registrationapp.Constants.Companion.ID_USER
 import com.myprojects.registrationapp.viewModel.UserViewModel
 import com.myprojects.registrationapp.viewModel.UserViewModelFactory
 
 class LoginActivity : AppCompatActivity() {
-    val ID_USER = "idAuthorized"
     private val userViewModel: UserViewModel by viewModels {
         UserViewModelFactory((application as UserApplication).repository)
     }

@@ -26,19 +26,19 @@ class RegistrationActivity : AppCompatActivity() {
         UserViewModelFactory((application as UserApplication).repository)
     }
     private var disposable = CompositeDisposable()
-    var nameInputLayout: TextInputLayout ?=null
-    var surnameInputLayout: TextInputLayout ?=null
-    var ageInputLayout: TextInputLayout ?=null
-    var mobileInputLayout: TextInputLayout ?=null
-    var emailInputLayout: TextInputLayout ?=null
-    var passwordInputLayout: TextInputLayout ?=null
+    lateinit var nameInputLayout: TextInputLayout
+    lateinit var surnameInputLayout: TextInputLayout
+    lateinit var ageInputLayout: TextInputLayout
+    lateinit var mobileInputLayout: TextInputLayout
+    lateinit var emailInputLayout: TextInputLayout
+    lateinit var passwordInputLayout: TextInputLayout
 
-    var nameEt: EditText?=null
-    var surnameEt: EditText?=null
-    var mobileEt: EditText?=null
-    var ageEt: EditText?=null
-    var emailEt: EditText?=null
-    var passwordEt: EditText?=null
+    lateinit var nameEt: EditText
+    lateinit var surnameEt: EditText
+    lateinit var mobileEt: EditText
+    lateinit var ageEt: EditText
+    lateinit var emailEt: EditText
+    lateinit var passwordEt: EditText
 
 
 
