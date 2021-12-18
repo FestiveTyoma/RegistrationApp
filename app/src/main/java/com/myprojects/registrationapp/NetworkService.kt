@@ -2,6 +2,7 @@ package com.myprojects.registrationapp
 
 
 import com.myprojects.registrationapp.db.User
+import com.myprojects.registrationapp.pojo.Albums
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -14,7 +15,7 @@ class NetworkService private constructor() {
     interface APIService {
         @GET("//search?term={searchResult}&entity=album&attribute=albumTerm&lang={language}")
         fun getAlbums(@Path("searchResult") searchResult: String,
-                      @Path("language") language: String): Call<User?>?
+                      @Path("language") language: String): Call<Albums?>?
     }
     val aPI: APIService
         get() = mRetrofit.create<APIService>(APIService::class.java)
