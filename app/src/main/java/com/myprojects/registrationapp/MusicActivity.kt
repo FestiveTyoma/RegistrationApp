@@ -17,7 +17,7 @@ import com.myprojects.registrationapp.viewModel.UserViewModelFactory
 
 
 class MusicActivity : AppCompatActivity() {
-    private var recyclerView: RecyclerView? = null
+    lateinit var recyclerView: RecyclerView
     var adapter: MyRecyclerViewAdapter? = null
     lateinit var searchView:SearchView
 
@@ -50,20 +50,7 @@ class MusicActivity : AppCompatActivity() {
                 recyclerView!!.setAdapter(adapter)
             }
         }
-      /*  searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(p0: String?): Boolean {
-                val intent = Intent(this@MusicActivity, SearchActivity::class.java)
-                intent.putExtra(SEARCH_WORD, p0)
-                startActivity(intent)
-                return false
-            }
 
-            override fun onQueryTextChange(p0: String?): Boolean {
-
-                return false
-            }
-
-        })*/
 
 }
     override fun onBackPressed() {

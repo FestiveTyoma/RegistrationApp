@@ -8,17 +8,21 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
+import retrofit2.http.QueryMap
 
 class NetworkService private constructor() {
     private val mRetrofit: Retrofit
 
     interface APIService {
-        @GET("//search?term={searchResult}&entity=album&attribute=albumTerm&lang={language}")
-        fun getAlbums(@Path("searchResult") searchResult: String,
-                      @Path("language") language: String): Call<Albums?>?
+        @GET("/search")
+        fun getAlbums(@QueryMap map: Map<String, String>): Call<Albums>
+     /* @GET("/search?term=sting&entity=album&attribute=albumTerm")
+      fun getAlbums(): Call<List<Albums>>*/
+
     }
     val aPI: APIService
-        get() = mRetrofit.create<APIService>(APIService::class.java)
+        get() = mRetrofit.create(APIService::class.java)
 
     companion object {
         private var mInstance: NetworkService? = null
