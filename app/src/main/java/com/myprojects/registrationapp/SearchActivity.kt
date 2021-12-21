@@ -5,6 +5,7 @@ import android.app.SearchManager
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,9 +15,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SearchActivity : AppCompatActivity() {
+class SearchActivity : AppCompatActivity(),SearchRecyclerViewAdapter.ItemClickListener {
     lateinit var recyclerView:RecyclerView
     lateinit var adapter:SearchRecyclerViewAdapter
+     lateinit var album:Albums
 
 
 
@@ -55,9 +57,10 @@ class SearchActivity : AppCompatActivity() {
         data["lang"] = lang
           NetworkService.instance?.aPI?.getAlbums(data)?.enqueue(object : Callback<Albums> {
               override fun onResponse(call: Call<Albums>, response: Response<Albums>) {
-                  val album =response.body()
+                  album = response.body()!!
                   recyclerView.layoutManager = LinearLayoutManager(this@SearchActivity)
-                  adapter = SearchRecyclerViewAdapter(this@SearchActivity, album!!)
+                  adapter = SearchRecyclerViewAdapter(this@SearchActivity, album)
+                  adapter.setClickListener(this@SearchActivity)
                   recyclerView.adapter = adapter
               }
 
@@ -68,9 +71,15 @@ class SearchActivity : AppCompatActivity() {
               }
           })
     }
-    /*private fun fillListWithJokes() {
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = SearchRecyclerViewAdapter(this, albumsArray)
-        recyclerView.adapter = adapter
-    }*/
+
+    override fun onItemClick(view: View?, position: Int) {
+        val colId = album.results?.get(position)?.collectionId
+        Toast.makeText(this, "CollectionId "+colId.toString(), Toast.LENGTH_LONG).show()
+    }
+
+    /* override fun onItemClick(view: View?, position: Int) {
+         val colId = album.results?.get(position)?.collectionId
+         Toast.makeText(this, "CollectionId "+colId, Toast.LENGTH_LONG).show()
+     }*/
+
 }

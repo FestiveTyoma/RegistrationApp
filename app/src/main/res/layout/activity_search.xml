@@ -6,11 +6,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".SearchActivity">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp" android:id="@+id/linearLayout">
+        <TextView
+                android:text="Album's logo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" android:id="@+id/textView1" android:layout_weight="2"
+                android:gravity="center_horizontal"/>
+        <TextView
+                android:text="Album's name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" android:id="@+id/textView2" android:layout_weight="1"
+                android:gravity="center_horizontal"/>
+        <TextView
+                android:text="Artist's name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" android:id="@+id/textView3" android:layout_weight="1"
+                android:gravity="center_horizontal"/>
+        <TextView
+                android:text="Tracks"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" android:id="@+id/textView4" android:layout_weight="1"
+                android:gravity="center_horizontal"/>
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp" android:id="@+id/recyclerViewTable"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"/>
+            android:layout_marginEnd="8dp"
+            android:id="@+id/recyclerViewTable"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
