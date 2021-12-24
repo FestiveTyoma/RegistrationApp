@@ -10,14 +10,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.myprojects.registrationapp.adapters.SearchRecyclerViewAdapter
 import com.myprojects.registrationapp.pojo.Albums
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SearchActivity : AppCompatActivity(),SearchRecyclerViewAdapter.ItemClickListener {
+class SearchActivity : AppCompatActivity(), SearchRecyclerViewAdapter.ItemClickListener {
     lateinit var recyclerView:RecyclerView
-    lateinit var adapter:SearchRecyclerViewAdapter
+    lateinit var adapter: SearchRecyclerViewAdapter
      lateinit var album:Albums
 
 
@@ -73,8 +74,12 @@ class SearchActivity : AppCompatActivity(),SearchRecyclerViewAdapter.ItemClickLi
     }
 
     override fun onItemClick(view: View?, position: Int) {
-        val colId = album.results?.get(position)?.collectionId
-        Toast.makeText(this, "CollectionId "+colId.toString(), Toast.LENGTH_LONG).show()
+        val collectionId = album.results.get(position).collectionId
+
+        val intent = Intent(this, AlbumActivity::class.java)
+        intent.putExtra(Constants.ID_COLLECTION, collectionId )
+        startActivity(intent)
+
     }
 
     /* override fun onItemClick(view: View?, position: Int) {

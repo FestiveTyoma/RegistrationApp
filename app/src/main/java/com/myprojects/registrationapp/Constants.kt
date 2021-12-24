@@ -5,6 +5,7 @@ class Constants {
 
         const val ID_USER = "idAuthorized"
         const val SEARCH_WORD="text"
+        const val ID_COLLECTION="1"
 
     }
 }

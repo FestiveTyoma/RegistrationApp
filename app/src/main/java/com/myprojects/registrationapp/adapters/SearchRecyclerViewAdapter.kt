@@ -1,14 +1,21 @@
-package com.myprojects.registrationapp
+package com.myprojects.registrationapp.adapters
 
 import android.content.Context
+import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
+import com.myprojects.registrationapp.R
 import com.myprojects.registrationapp.pojo.Albums
-import com.squareup.picasso.Picasso
 
 
 class SearchRecyclerViewAdapter internal constructor(context: Context?, data: Albums) :
@@ -25,12 +32,33 @@ class SearchRecyclerViewAdapter internal constructor(context: Context?, data: Al
     // binds the data to the TextView in each row
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = mData.results.get(position)
-        val imageView = holder.logoImageView
         holder.tvAlbumName.text=data.collectionName
         holder.tvArtistName.text=data.artistName
         holder.tvSongNumber.text=data.trackCount.toString()
+Glide.with(holder.logoImageView.context).load(data.artworkUrl60).override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+    .error(R.drawable.ic_launcher_background).listener(object :RequestListener<Drawable>{
+        override fun onLoadFailed(
+            e: GlideException?,
+            model: Any?,
+            target: Target<Drawable>?,
+            isFirstResource: Boolean
+        ): Boolean {
+            Log.e("MY_TAG", "GlideError"+e?.toString())
+            return false
+        }
 
-        Picasso.get().load(data.collectionViewUrl).into(imageView)
+        override fun onResourceReady(
+            resource: Drawable?,
+            model: Any?,
+            target: Target<Drawable>?,
+            dataSource: DataSource?,
+            isFirstResource: Boolean
+        ): Boolean {
+            return false
+        }
+
+    }).into(holder.logoImageView)
+
 
 
     }

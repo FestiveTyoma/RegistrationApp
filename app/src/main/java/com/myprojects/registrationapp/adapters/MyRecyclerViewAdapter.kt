@@ -1,12 +1,12 @@
-package com.myprojects.registrationapp
+package com.myprojects.registrationapp.adapters
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.myprojects.registrationapp.R
 import android.widget.TextView
+import com.myprojects.registrationapp.R
 
 class MyRecyclerViewAdapter internal constructor(context: Context?, data: List<String>) :
     RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder>() {

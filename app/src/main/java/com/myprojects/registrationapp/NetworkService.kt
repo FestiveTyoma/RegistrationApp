@@ -17,8 +17,8 @@ class NetworkService private constructor() {
     interface APIService {
         @GET("/search")
         fun getAlbums(@QueryMap map: Map<String, String>): Call<Albums>
-     /* @GET("/search?term=sting&entity=album&attribute=albumTerm")
-      fun getAlbums(): Call<List<Albums>>*/
+        @GET("/lookup")
+        fun getAlbumById(@QueryMap map: Map<String, String>): Call<Albums>
 
     }
     val aPI: APIService

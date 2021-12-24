@@ -20,4 +20,5 @@
     <string name="textButtonSignIn">Sign In</string>
     <string name="search_hint">Enter a album, singer, song ...</string>
     <string name="search_title">search</string>
+    <string name="album_s_logo">album\'s logo</string>
 </resources>

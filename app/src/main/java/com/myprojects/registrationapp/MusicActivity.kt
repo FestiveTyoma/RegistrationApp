@@ -12,6 +12,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myprojects.registrationapp.Constants.Companion.ID_USER
+import com.myprojects.registrationapp.adapters.MyRecyclerViewAdapter
 import com.myprojects.registrationapp.viewModel.UserViewModel
 import com.myprojects.registrationapp.viewModel.UserViewModelFactory
 

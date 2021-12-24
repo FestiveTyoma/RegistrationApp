@@ -43,6 +43,34 @@ public class Result {
     private String releaseDate;
     @com.squareup.moshi.Json(name = "primaryGenreName")
     private String primaryGenreName;
+    @com.squareup.moshi.Json(name = "kind")
+    private String kind;
+    @com.squareup.moshi.Json(name = "trackId")
+    private Integer trackId;
+    @com.squareup.moshi.Json(name = "trackName")
+    private String trackName;
+    @com.squareup.moshi.Json(name = "trackCensoredName")
+    private String trackCensoredName;
+    @com.squareup.moshi.Json(name = "trackViewUrl")
+    private String trackViewUrl;
+    @com.squareup.moshi.Json(name = "previewUrl")
+    private String previewUrl;
+    @com.squareup.moshi.Json(name = "artworkUrl30")
+    private String artworkUrl30;
+    @com.squareup.moshi.Json(name = "trackPrice")
+    private Float trackPrice;
+    @com.squareup.moshi.Json(name = "trackExplicitness")
+    private String trackExplicitness;
+    @com.squareup.moshi.Json(name = "discCount")
+    private Integer discCount;
+    @com.squareup.moshi.Json(name = "discNumber")
+    private Integer discNumber;
+    @com.squareup.moshi.Json(name = "trackNumber")
+    private Integer trackNumber;
+    @com.squareup.moshi.Json(name = "trackTimeMillis")
+    private Integer trackTimeMillis;
+    @com.squareup.moshi.Json(name = "isStreamable")
+    private Boolean isStreamable;
 
     public String getWrapperType() {
         return wrapperType;
@@ -202,6 +230,117 @@ public class Result {
 
     public void setPrimaryGenreName(String primaryGenreName) {
         this.primaryGenreName = primaryGenreName;
+    }
+    public String getKind() {
+        return kind;
+    }
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public Integer getTrackId() {
+        return trackId;
+    }
+
+    public void setTrackId(Integer trackId) {
+        this.trackId = trackId;
+    }
+
+    public String getTrackName() {
+        return trackName;
+    }
+
+    public void setTrackName(String trackName) {
+        this.trackName = trackName;
+    }
+
+    public String getTrackCensoredName() {
+        return trackCensoredName;
+    }
+
+    public void setTrackCensoredName(String trackCensoredName) {
+        this.trackCensoredName = trackCensoredName;
+    }
+
+    public String getTrackViewUrl() {
+        return trackViewUrl;
+    }
+
+    public void setTrackViewUrl(String trackViewUrl) {
+        this.trackViewUrl = trackViewUrl;
+    }
+
+    public String getPreviewUrl() {
+        return previewUrl;
+    }
+
+    public void setPreviewUrl(String previewUrl) {
+        this.previewUrl = previewUrl;
+    }
+
+    public String getArtworkUrl30() {
+        return artworkUrl30;
+    }
+
+    public void setArtworkUrl30(String artworkUrl30) {
+        this.artworkUrl30 = artworkUrl30;
+    }
+
+    public Float getTrackPrice() {
+        return trackPrice;
+    }
+
+    public void setTrackPrice(Float trackPrice) {
+        this.trackPrice = trackPrice;
+    }
+
+    public String getTrackExplicitness() {
+        return trackExplicitness;
+    }
+
+    public void setTrackExplicitness(String trackExplicitness) {
+        this.trackExplicitness = trackExplicitness;
+    }
+
+    public Integer getDiscCount() {
+        return discCount;
+    }
+
+    public void setDiscCount(Integer discCount) {
+        this.discCount = discCount;
+    }
+
+    public Integer getDiscNumber() {
+        return discNumber;
+    }
+
+    public void setDiscNumber(Integer discNumber) {
+        this.discNumber = discNumber;
+    }
+
+    public Integer getTrackNumber() {
+        return trackNumber;
+    }
+
+    public void setTrackNumber(Integer trackNumber) {
+        this.trackNumber = trackNumber;
+    }
+
+    public Integer getTrackTimeMillis() {
+        return trackTimeMillis;
+    }
+
+    public void setTrackTimeMillis(Integer trackTimeMillis) {
+        this.trackTimeMillis = trackTimeMillis;
+    }
+
+    public Boolean getIsStreamable() {
+        return isStreamable;
+    }
+
+    public void setIsStreamable(Boolean isStreamable) {
+        this.isStreamable = isStreamable;
     }
 
 }
