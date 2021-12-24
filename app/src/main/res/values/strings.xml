@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">RegistrationApp</string>
+    <string name="textEtName">Name</string>
+    <string name="textEtSurname">Surname</string>
+    <string name="textEtAge">Age</string>
+    <string name="textEtMobile">Mobile phone</string>
+    <string name="textEtEmail">Email</string>
+    <string name="textEtPassword">Password</string>
+    <string name="textEtPasswordRepeat">Repeat a password</string>
+    <string name="textButtonSignUp">Sign Up</string>
+    <string name="textTvRegistration">Registration</string>
+    <string name="name_validation_error">Only a-z symbols allowed</string>
+    <string name="email_validation_error">Enter your email in the format —@-</string>
+    <string name="age_validation_error">Your age must be over 18</string>
+    <string name="password_validation_error">Your password must contain a number, lowercase letter, uppercase
+        letter and be more than 5 symbols
+    </string>
+    <string name="field_validation_error">Field could not be empty</string>
+    <string name="txtButtonSignUp">SIGN UP</string>
+    <string name="textButtonSignIn">Sign In</string>
+    <string name="search_hint">Enter a album, singer, song ...</string>
+    <string name="search_title">search</string>
+    <string name="album_s_logo">album\'s logo</string>
 </resources>
