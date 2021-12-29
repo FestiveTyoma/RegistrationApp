@@ -63,10 +63,10 @@
                 android:hint="@string/textEtMobile"
                 android:id="@+id/mobileEt"
                 android:inputType="phone"/>
-               <!-- android:typeface="monospace"
-                mask:allowed_chars="1234567890"
+                <!--mask:allowed_chars="1234567890"
                 mask:mask="+7(###)###-##-##"
                 app:keep_hint="true"-->
+
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
@@ -96,14 +96,15 @@
             android:text="@string/txtButtonSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/buttonSignUp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.502" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.28"/>
     <Button
-            android:text="Skip"
+            android:text="@string/textButtonSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/buttonSkip"
-            app:layout_constraintBottom_toTopOf="@+id/buttonSignUp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="@+id/passwordInputLayout"
-    />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonSignUp"
+            app:layout_constraintTop_toTopOf="@+id/buttonSignUp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

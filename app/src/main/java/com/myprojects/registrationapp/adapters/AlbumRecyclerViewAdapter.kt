@@ -1,6 +1,7 @@
 package com.myprojects.registrationapp.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,11 +24,14 @@ class AlbumRecyclerViewAdapter internal constructor(context: Context?, data:Albu
 
     // binds the data to the TextView in each row
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         val data = mData.results[position]
-if (position!=0) {
-    holder.tvSong.text = data.trackName
-    holder.tvNumberOfSong.text = data.trackNumber.toString()
-}
+        if (position!=0) {
+            holder.tvSong.text = data.trackName
+            Log.d("Position_debag", "Имя трека " + data.trackName + "Позиция " + position)
+            holder.tvNumberOfSong.text = data.trackNumber.toString()
+            Log.d("Position_debag", "Номер трека " + data.trackNumber + "Позиция " + position)
+        }
 
     }
 

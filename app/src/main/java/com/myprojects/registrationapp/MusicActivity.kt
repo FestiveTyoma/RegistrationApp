@@ -20,7 +20,6 @@ import com.myprojects.registrationapp.viewModel.UserViewModelFactory
 class MusicActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     var adapter: MyRecyclerViewAdapter? = null
-    lateinit var searchView:SearchView
 
     private val userViewModel: UserViewModel by viewModels {
         UserViewModelFactory((application as UserApplication).repository)
@@ -46,23 +45,12 @@ class MusicActivity : AppCompatActivity() {
         userViewModel.userById(id).observe(this) { users ->
             users.let {
                 val data : List<String> = listOf(it.name,it.surname,it.age,it.email)
-                recyclerView!!.setLayoutManager(LinearLayoutManager(this))
+                recyclerView.layoutManager = LinearLayoutManager(this)
                 adapter = MyRecyclerViewAdapter(this, data)
-                recyclerView!!.setAdapter(adapter)
+                recyclerView.adapter = adapter
             }
         }
-
-
 }
-    override fun onBackPressed() {
-        if (!searchView.isIconified()) {
-            searchView.onActionViewCollapsed();
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-
 }
 
 

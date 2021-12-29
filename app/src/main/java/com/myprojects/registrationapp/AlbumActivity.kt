@@ -1,11 +1,11 @@
 package com.myprojects.registrationapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -14,6 +14,7 @@ import com.myprojects.registrationapp.pojo.Albums
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
 
 
 class AlbumActivity : AppCompatActivity() {
@@ -45,7 +46,7 @@ class AlbumActivity : AppCompatActivity() {
                 album = response.body()!!
                 tvAlbumName.text= album.results[0].collectionName
                 tvArtistName.text= album.results[0].artistName
-                tvReleaseDate.text= album.results[0].releaseDate
+                tvReleaseDate.text=album.results[0].releaseDate
                 Glide.with(this@AlbumActivity).load(album.results.get(0).artworkUrl100).into(tvlogoImageView)
                 recyclerView.layoutManager = LinearLayoutManager(this@AlbumActivity)
                 adapter = AlbumRecyclerViewAdapter(this@AlbumActivity, album)
